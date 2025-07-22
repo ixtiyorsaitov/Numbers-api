@@ -21,7 +21,7 @@ Here're some of the project's best features:
 *   ⚠️ Error handling – Displays a friendly message if input is invalid (e.g. "The input must be a number").
 *   📉 Fallback for unknown facts – If no fact is found a message like “No data was found for this number” is shown.
 *   🌓 Dark mode & Light mode support – Switches automatically based on user's system theme.
-*   . 📱 Responsive design – Fully optimized for mobile tablet and desktop.
+*   📱 Responsive design – Fully optimized for mobile tablet and desktop.
 *   ⚙️ Modular code structure – Clean scalable file organization using best practices with Next.js App Router.
 *   🚀 Fast performance – Uses server-side rendering (SSR) and caching where possible.
 *   🌐 API integration – Fetches data from NumbersAPI in real-time.
