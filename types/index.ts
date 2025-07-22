@@ -9,3 +9,11 @@ export interface IDetails {
   number: string;
   isRandom: boolean;
 }
+
+export interface ResultPageProps {
+  searchParams: {
+    type?: string;
+    number?: string;
+    random?: string;
+  };
+}
