@@ -4,24 +4,25 @@ import { FactType } from "@/types";
 import { notFound } from "next/navigation";
 import Head from "next/head";
 
-type Props = {
-  searchParams: {
+interface PageProps {
+  searchParams: Promise<{
     type?: string;
     number?: string;
     random?: string;
-  };
-};
+  }>;
+}
 
-const ResultPage = async ({ searchParams }: Props) => {
-  const numberInput = searchParams.number;
-  const isRandom = searchParams.random === "true";
+const ResultPage = async ({ searchParams }: PageProps) => {
+  const params = await searchParams; // Await the promise
+  const numberInput = params.number;
+  const isRandom = params.random === "true";
 
   const number = Number(numberInput);
   if (!isRandom && (isNaN(number) || numberInput === undefined)) {
     notFound();
   }
 
-  const type = searchParams.type;
+  const type = params.type;
   const validTypes = Object.values(FactType);
   const factType: FactType = validTypes.includes(type as FactType)
     ? (type as FactType)
