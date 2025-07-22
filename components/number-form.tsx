@@ -64,22 +64,24 @@ const NumberForm = ({ onSubmit, setDetails, details }: Props) => {
               id="number-input"
               type="text"
               placeholder={
-                details.factType === "date"
-                  ? "e.g., 0101 for Jan 1st"
-                  : "e.g., 42"
+                details.factType === "date" ? "0101 for Jan 1st" : "42"
               }
-              value={numberInput}
-              onChange={(e) => setNumberInput(e.target.value)}
-              disabled={isRandom}
-              required={!isRandom}
+              value={details.number}
+              onChange={(e) =>
+                setDetails({ ...details, number: e.target.value })
+              }
+              disabled={details.isRandom}
+              required={!details.isRandom}
             />
           </div>
 
           <div className="flex items-center space-x-2">
             <Switch
               id="random-toggle"
-              checked={isRandom}
-              onCheckedChange={setIsRandom}
+              checked={details.isRandom}
+              onCheckedChange={() =>
+                setDetails({ ...details, isRandom: !details.isRandom })
+              }
             />
             <Label htmlFor="random-toggle">Get a random fact</Label>
           </div>

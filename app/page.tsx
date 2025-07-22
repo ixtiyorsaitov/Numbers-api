@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import NumberForm from "@/components/number-form";
 import { FactType, IDetails } from "@/types";
 
-export default function FactInputPage() {
+const FactInputPage = () => {
   const [details, setDetails] = useState<IDetails>({
     factType: FactType.TRIVIA,
     number: "",
@@ -26,7 +26,10 @@ export default function FactInputPage() {
       queryParams.append("number", details.number);
     }
 
-    router.push(`/fact?${queryParams.toString()}`);
+    console.log(queryParams);
+    console.log(details);
+
+    router.push(`/result?${queryParams.toString()}`);
   };
 
   return (
@@ -38,4 +41,6 @@ export default function FactInputPage() {
       />
     </div>
   );
-}
+};
+
+export default FactInputPage;
