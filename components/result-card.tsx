@@ -42,8 +42,6 @@ const ResultCard = () => {
               <p className="text-lg">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Reprehenderit facere recusandae magnam, id reiciendis nihil
-                animi officia voluptates culpa! Assumenda ipsum quod dolorem
-                possimus quidem incidunt odio ullam corporis quasi.
               </p>
             </div>
           </>
