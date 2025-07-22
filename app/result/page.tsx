@@ -28,13 +28,21 @@ const ResultPage = async ({ params }: ResultPageProps) => {
 };
 
 export default ResultPage;
+// ⛔ noto'g'ri: export function generateMetadata({ searchParams }: ResultPageProps) {
 
-export function generateMetadata({ params }: ResultPageProps) {
-  const numberInput = params.number;
-  const isRandom = params.random === "true";
+// ✅ to'g'risi:
+import type { Metadata } from "next";
+
+export function generateMetadata({
+  searchParams,
+}: {
+  searchParams?: { [key: string]: string | string[] | undefined };
+}): Metadata {
+  const numberInput = searchParams?.number as string | undefined;
+  const isRandom = searchParams?.random === "true";
 
   const number = Number(numberInput);
-  const type = params.type ?? "trivia";
+  const type = (searchParams?.type as string) ?? "trivia";
 
   if (!isRandom && !isNaN(number) && numberInput !== undefined) {
     return {
