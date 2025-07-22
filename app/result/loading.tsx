@@ -31,6 +31,8 @@ const ResultPageLoading = () => {
             <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-full animate-pulse" />
             <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-5/6 animate-pulse" />
             <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4 animate-pulse" />
+            <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4 animate-pulse" />
+            <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4 animate-pulse" />
           </div>
         </div>
       </CardContent>
