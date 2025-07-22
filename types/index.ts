@@ -11,11 +11,7 @@ export interface IDetails {
 }
 
 export interface ResultPageProps {
-  params: {
-    type?: string;
-    number?: string;
-    random?: string;
-  };
+  params: Promise<{ type?: string; number?: string; random?: string }>;
 }
 
 export interface IResponse {

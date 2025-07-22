@@ -4,15 +4,16 @@ import { FactType, ResultPageProps } from "@/types";
 import { notFound } from "next/navigation";
 
 const ResultPage = async ({ params }: ResultPageProps) => {
-  const numberInput = params.number;
-  const isRandom = params.random === "true";
+  const searchParams = await params;
+  const numberInput = searchParams.number;
+  const isRandom = searchParams.random === "true";
 
   const number = Number(numberInput);
   if (!isRandom && (isNaN(number) || numberInput === undefined)) {
     notFound();
   }
 
-  const type = params.type;
+  const type = searchParams.type;
   const validTypes = Object.values(FactType);
   const factType: FactType = validTypes.includes(type as FactType)
     ? (type as FactType)
@@ -28,21 +29,14 @@ const ResultPage = async ({ params }: ResultPageProps) => {
 };
 
 export default ResultPage;
-// ⛔ noto'g'ri: export function generateMetadata({ searchParams }: ResultPageProps) {
 
-// ✅ to'g'risi:
-import type { Metadata } from "next";
-
-export function generateMetadata({
-  searchParams,
-}: {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}): Metadata {
-  const numberInput = searchParams?.number as string | undefined;
-  const isRandom = searchParams?.random === "true";
+export async function generateMetadata({ params }: ResultPageProps) {
+  const searchParams = await params;
+  const numberInput = searchParams.number;
+  const isRandom = searchParams.random === "true";
 
   const number = Number(numberInput);
-  const type = (searchParams?.type as string) ?? "trivia";
+  const type = searchParams.type ?? "trivia";
 
   if (!isRandom && !isNaN(number) && numberInput !== undefined) {
     return {
