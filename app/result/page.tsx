@@ -1,9 +1,18 @@
 import ResultCard from "@/components/result-card";
 import { ApiService } from "@/lib/api";
-import { FactType, ResultPageProps } from "@/types";
+import { FactType } from "@/types";
 import { notFound } from "next/navigation";
+import Head from "next/head";
 
-const ResultPage = async ({ searchParams }: ResultPageProps) => {
+type Props = {
+  searchParams: {
+    type?: string;
+    number?: string;
+    random?: string;
+  };
+};
+
+const ResultPage = async ({ searchParams }: Props) => {
   const numberInput = searchParams.number;
   const isRandom = searchParams.random === "true";
 
@@ -21,28 +30,18 @@ const ResultPage = async ({ searchParams }: ResultPageProps) => {
   const response = await ApiService.getResult(number, factType, isRandom);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-950 p-4">
-      <ResultCard data={response} />
-    </div>
+    <>
+      <Head>
+        <title>
+          Facts of number {response.number} ({factType})
+        </title>
+      </Head>
+
+      <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-950 p-4">
+        <ResultCard data={response} />
+      </div>
+    </>
   );
 };
 
 export default ResultPage;
-
-export async function generateMetadata({ searchParams }: ResultPageProps) {
-  const numberInput = searchParams.number;
-  const isRandom = searchParams.random === "true";
-
-  const number = Number(numberInput);
-  const type = searchParams.type ?? "trivia";
-
-  if (!isRandom && !isNaN(number) && numberInput !== undefined) {
-    return {
-      title: `Facts of number ${number} (${type})`,
-    };
-  }
-
-  return {
-    title: "Number Facts",
-  };
-}
