@@ -17,3 +17,10 @@ export interface ResultPageProps {
     random?: string;
   };
 }
+
+export interface IResponse {
+  found: boolean;
+  number: number;
+  text: string;
+  type: FactType;
+}

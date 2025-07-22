@@ -7,9 +7,12 @@ import {
 } from "./ui/card";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Terminal } from "lucide-react";
+import { FC } from "react";
+import { IResponse } from "@/types";
+import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 
-const ResultCard = () => {
+const ResultCard: FC<{ data: IResponse }> = ({ data }) => {
   return (
     <Card className="w-full max-w-md">
       <CardHeader>
@@ -19,33 +22,34 @@ const ResultCard = () => {
         </CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4">
-        {false ? (
-          <div className="text-destructive text-center">Error</div>
-        ) : (
-          <>
-            <div className="grid gap-1">
-              <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                Type:
-              </p>
-              <p className="text-lg font-semibold capitalize">Trivia</p>
-            </div>
-            <div className="grid gap-1">
-              <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                Number/Date:
-              </p>
-              <p className="text-lg font-semibold">41</p>
-            </div>
-            <div className="grid gap-1">
-              <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                Fact:
-              </p>
-              <p className="text-lg">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Reprehenderit facere recusandae magnam, id reiciendis nihil
-              </p>
-            </div>
-          </>
-        )}
+        <div className="grid gap-1">
+          <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
+            Type: {data.type}
+          </p>
+          <p className="text-lg font-semibold capitalize">{data.type}</p>
+        </div>
+        <div className="grid gap-1">
+          <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
+            Number/Date:
+          </p>
+          <p className="text-lg font-semibold">{data.number}</p>
+        </div>
+        <div className="grid gap-1">
+          <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
+            Fact:
+          </p>
+          {data.found ? (
+            <p className="text-lg">{data.text}</p>
+          ) : (
+            <Alert variant="destructive">
+              <Terminal />
+              <AlertTitle>Not Found!</AlertTitle>
+              <AlertDescription>
+                No interesting fact was found for this number.
+              </AlertDescription>
+            </Alert>
+          )}
+        </div>
         <Link href="/">
           <Button className="w-full mt-4">
             <ArrowLeft />

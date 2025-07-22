@@ -24,7 +24,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${poppins.variable} ${poppins.className} antialiased`}
       >
-        {children}
+        <main>{children}</main>
       </body>
     </html>
   );

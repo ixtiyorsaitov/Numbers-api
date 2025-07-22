@@ -1,11 +1,13 @@
+import { axiosClient } from "@/http/axios";
+import { FactType, IResponse } from "@/types";
+
 export const ApiService = {
-  async getResult() {
-    await new Promise((resolve) => setTimeout(resolve, 100));
-    return {
-      data: ` Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Reprehenderit facere recusandae magnam, id reiciendis nihil
-                animi officia voluptates culpa! Assumenda ipsum quod dolorem
-                possimus quidem incidunt odio ullam corporis quasi.`,
-    };
+  async getResult(number: number, type: FactType, random: boolean) {
+    const url = random
+      ? `/random/${type}` // /random/math
+      : `/${number}/${type}`; // /42/math
+
+    const { data } = await axiosClient.get<IResponse>(url);
+    return data;
   },
 };
