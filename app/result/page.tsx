@@ -3,8 +3,7 @@ import { ApiService } from "@/lib/api";
 import { FactType, ResultPageProps } from "@/types";
 import { notFound } from "next/navigation";
 
-const ResultPage = async ({ params }: ResultPageProps) => {
-  const searchParams = await params;
+const ResultPage = async ({ searchParams }: ResultPageProps) => {
   const numberInput = searchParams.number;
   const isRandom = searchParams.random === "true";
 
@@ -30,8 +29,7 @@ const ResultPage = async ({ params }: ResultPageProps) => {
 
 export default ResultPage;
 
-export async function generateMetadata({ params }: ResultPageProps) {
-  const searchParams = await params;
+export async function generateMetadata({ searchParams }: ResultPageProps) {
   const numberInput = searchParams.number;
   const isRandom = searchParams.random === "true";
 

@@ -10,9 +10,13 @@ export interface IDetails {
   isRandom: boolean;
 }
 
-export interface ResultPageProps {
-  params: Promise<{ type?: string; number?: string; random?: string }>;
-}
+export type ResultPageProps = {
+  searchParams: {
+    number?: string;
+    type?: string;
+    random?: string;
+  };
+};
 
 export interface IResponse {
   found: boolean;

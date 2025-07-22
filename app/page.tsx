@@ -29,13 +29,13 @@ const FactInputPage = () => {
   };
 
   return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-950 p-4">
-        <NumberForm
-          details={details}
-          setDetails={setDetails}
-          onSubmit={handleSubmit}
-        />
-      </div>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-950 p-4">
+      <NumberForm
+        details={details}
+        setDetails={setDetails}
+        onSubmit={handleSubmit}
+      />
+    </div>
   );
 };
 
