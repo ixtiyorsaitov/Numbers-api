@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="center" id="title">Facts about numbers</h1>
 
-## Getting Started
+<p align="center"><img src="https://i.ibb.co/ynz6j4Qk/New-Tech-Futuristic-Purple-and-Yellow-Youtube-Thumbnail-2.png" alt="project-image"></p>
 
-First, run the development server:
+<p id="description">Simple Next.js SPA that fetches fun and interesting facts about numbers from NumbersAPI. Users can choose a number type (Math Trivia Date) enter a specific number or generate a random one and view results on a separate page.</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+<h2>🚀 Demo</h2>
+
+[https://numbers-api-ixtiyor.vercel.app](https://numbers-api-ixtiyor.vercel.app)
+
+  
+  
+<h2>🧐 Features</h2>
+
+Here're some of the project's best features:
+
+*   🔢 Number input support – Users can enter any number to discover interesting facts.
+*   🎲 Random mode – Generate a random number fact with just one click.
+*   🧠 Fact type selection – Choose between Trivia Math Date or Year categories.
+*   📄 Clean result page – Shows the user input selected type and the retrieved fact.
+*   ⚠️ Error handling – Displays a friendly message if input is invalid (e.g. "The input must be a number").
+*   📉 Fallback for unknown facts – If no fact is found a message like “No data was found for this number” is shown.
+*   🌓 Dark mode & Light mode support – Switches automatically based on user's system theme.
+*   . 📱 Responsive design – Fully optimized for mobile tablet and desktop.
+*   ⚙️ Modular code structure – Clean scalable file organization using best practices with Next.js App Router.
+*   🚀 Fast performance – Uses server-side rendering (SSR) and caching where possible.
+*   🌐 API integration – Fetches data from NumbersAPI in real-time.
+*   🧪 Type-safe code – Built with TypeScript to prevent runtime errors.
+
+<h2>🛠️ Installation Steps:</h2>
+
+<p>1. Make sure Git and NodeJS is installed.</p>
+
+<p>2. Clone this repository to your local computer.</p>
+
+<p>3. Create .env.local file in client directory.</p>
+
+```
+NEXT_PUBLIC_API_URL=http://numbersapi.com
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p>4. Enter your client file</p>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+cd client
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<p>5. Install node modules</p>
 
-## Learn More
+```
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+<p>6. Run project</p>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+  
+  
+<h2>💻 Built with</h2>
 
-## Deploy on Vercel
+Technologies used in the project:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*   Frontend: Next.js 15 ReactJS TailwindCSS Shadcn UI
+*   API: http://numbersapi.com
+*   Type Safety: TypeScript
