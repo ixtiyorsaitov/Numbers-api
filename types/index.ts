@@ -11,7 +11,7 @@ export interface IDetails {
 }
 
 export interface ResultPageProps {
-  searchParams: {
+  params: {
     type?: string;
     number?: string;
     random?: string;
